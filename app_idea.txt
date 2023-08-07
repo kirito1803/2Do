@@ -1,0 +1,90 @@
+- app_structure:
+    2do_app {
+        public {}
+        src {
+            asset { //scratch
+                picture {}
+                video {}
+            }
+            database {
+                Methods.js
+                ScratchData.js
+            }
+            page {
+                Home {
+                    HomePage.js
+                    HomePage.scss
+                    ComponentJSX {
+                        Component.js
+                    }
+                    ComponentSCSS {
+                        Component.scss
+                    }
+                }
+                Login {
+                    ComponentJSX {}
+                    ComponentSCSS {}
+                }
+                Todo {
+                    ComponentJSX {}
+                    ComponentSCSS {}
+                }
+            }
+            App.js
+            App.scss
+            navbar.js
+            navbar.scss
+            index.js
+            index.scss
+        }
+    }
+
+- app_function:
+
+- data_structure:   // 0-based
+	"2Do" : [
+        {
+            "id" : num,
+            "name" : string,
+            "account" : string,
+            "password" : string,
+            "list" : [
+                {
+                    "id" : num,
+                    "name" : string (Max length: 15 char),
+                    "describe" : string (Max length: 30 char)
+                    "deadline" : time,
+                    "priority" : boolean, -> important or not
+                    "timeOut" : boolean, -> exceeded or not
+                    "checked" : boolean -> finished or not
+                },
+                {
+                    other_tasks
+                }
+            ]
+        },
+        {
+            other_users
+        }
+    ]
+
+- CRUD returned message:
+    CRUD_type:
+        + Todo
+        + User
+    CRUD Action:
+        + Create: Add
+        + Read: Get
+        + Update: Change
+        + Delete: Delete
+    + <CRUD_type>_<function_name>:<Action>_Success
+    + <CRUD_type>_<function_name>:<Action>_Failed:Error_type
+
+- Arrangement:
+    + default: increasing deadline + time out
+
+- clickType:
+    + Add
+    + Delete
+    + Check
+    => onNameClick (inline) -> section's block (setClickType) -> page's block (node + CRUD)
